@@ -4,9 +4,9 @@ function Connection:new(other_id,computer_type,connection_type)
     local o = {}
     setmetatable(o,self)
     self.__index = self
-    self.other_id = other_id
-    self.computer_type = computer_type
-    self.connection_type = connection_type
+    o.other_id = other_id
+    o.computer_type = computer_type
+    o.connection_type = connection_type
     return o
 end
 

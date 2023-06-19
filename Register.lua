@@ -11,8 +11,8 @@ function Register:new(o)
     o = o or {}
     setmetatable(o, self)
     self.__index = self
-    self.data = {}
-    self.size = 0
+    o.data = {}
+    o.size = 0
     return o
 end
 
