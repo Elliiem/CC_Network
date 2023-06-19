@@ -1,5 +1,6 @@
 local posix = require('posix')
-
+require("Register")
+R, W = posix.pipe()
 
 function DispatchChild(child_func)
     local child_pid = posix.fork()
@@ -69,13 +70,14 @@ function Child()
     posix._exit(0)
 end
 
-
-R, W = posix.pipe()
-
-local child = DispatchChild(Child)
-print(child)
-print(ReadAll(R))
+--local child = DispatchChild(Child)
+--print(child)
+--print(ReadAll(R))
 
 --somewhere to store the Status of Turtles / which turtles belong to this computer
 --some way of getting the Status of turtles
 --command lib
+
+local register = Register:new()
+register:AddSlave(69,"computer")
+print(register.data[69].computer_type)
